@@ -1,6 +1,3 @@
-# ── Cell 5: Configure hyperparameters ─────────────────────
-# These are GPU-optimised settings (much larger than CPU defaults)
-# Adjust if you want to experiment
 
 BATCH_SIZE    = 64     # (was 16 on CPU)
 BLOCK_SIZE    = 256    # (was 128 on CPU)

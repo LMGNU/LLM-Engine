@@ -5,8 +5,7 @@ import time
 import sys
 import os
 
-# ── Config & Hyperparameters ───────────────────────────────
-# (Assuming these come from your gpu_config.py or are defined here)
+# ── Config & Hyperparameters
 BATCH_SIZE    = 64 
 BLOCK_SIZE    = 256 
 MAX_ITERS     = 5000 
