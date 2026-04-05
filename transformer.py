@@ -7,7 +7,8 @@ import os
 from config.config import *
 
 print("=" * 60)
-print("  GPT Language Model - Training Pipeline")
+print(" Core Transformer-Engine - Training Pipeline")
+print("Eamon2009")
 print("=" * 60)
 print(f"\n[INFO] Starting at: {time.strftime('%Y-%m-%d %H:%M:%S')}")
 print(f"[INFO] Using device: {'cuda' if torch.cuda.is_available() else 'cpu'}")
@@ -82,7 +83,7 @@ def estimate_loss():
     return out
 
 
-# ── Model ──────────────────────────────────────────────────
+# Model 
 class Head(nn.Module):
     def __init__(self, head_size):
         super().__init__()
