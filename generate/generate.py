@@ -1,16 +1,16 @@
 import torch
 from torch.nn import functional as F
 import os
-from model import GPTLanguageModel, decode, device, block_size, _model_path
+from model import GPTLanguageModel, decode, device, block_size, model_path
 
 def run_inference():
-    if not os.path.exists(_model_path):
-        print(f"[Error] Could not find best_model.pt at: {_model_path}")
+    if not os.path.exists(model_path):
+        print(f"[Error] Could not find best_model.pt at: {model_path}")
         return
 
     print("--- Loading Pre-trained Model ---")
     model = GPTLanguageModel().to(device)
-    model.load_state_dict(torch.load(_model_path, map_location=device, weights_only=True))
+    model.load_state_dict(torch.load(model_path, map_location=device, weights_only=True))
     model.eval()
     print(f"[INFO] Using device: {device}")
     print("Model loaded. Generating text (Ctrl+C to stop)...\n")

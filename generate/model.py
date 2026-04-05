@@ -6,7 +6,7 @@ import os
 # ── Paths ──────────────────────────────────────────────────
 _project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 _cleaned_path = os.path.join(_project_root, 'cleaned.txt')
-_model_path   = os.path.join(_project_root, 'best_model.pt')
+model_path   = os.path.join(_project_root, 'best_model.pt')
 
 # ── Hyperparameters (must match training exactly) ──────────
 block_size = 128
