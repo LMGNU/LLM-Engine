@@ -1,25 +1,23 @@
 import torch
 import torch.nn as nn
 from torch.nn import functional as F
-import sys
 import os
 
-# Allow importing from parent directory where config/ lives
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
-from config.config import cleaned_path, train_split, seed
+# ── Paths ──────────────────────────────────────────────────
+_project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+_cleaned_path = os.path.join(_project_root, 'cleaned.txt')
+_model_path   = os.path.join(_project_root, 'best_model.pt')
 
 # ── Hyperparameters (must match training exactly) ──────────
-batch_size    = 16
-block_size    = 128
-n_embd        = 128
-n_head        = 4
-n_layer       = 4
-dropout       = 0.2
-device        = 'cuda' if torch.cuda.is_available() else 'cpu'
+block_size = 128
+n_embd     = 128
+n_head     = 4
+n_layer    = 4
+dropout    = 0.2
+device     = 'cuda' if torch.cuda.is_available() else 'cpu'
 
-# ── Vocabulary (must match training data exactly) ──────────
-with open(cleaned_path, 'r', encoding='utf-8') as f:
+# ── Vocabulary ─────────────────────────────────────────────
+with open(_cleaned_path, 'r', encoding='utf-8') as f:
     text = f.read()
 
 chars      = sorted(list(set(text)))
@@ -30,7 +28,7 @@ encode     = lambda s: [stri[c] for c in s]
 decode     = lambda l: ''.join([it[i] for i in l])
 
 
-# ── Model classes ──────────────────────────────────────────
+# ── Model ──────────────────────────────────────────────────
 class Head(nn.Module):
     def __init__(self, head_size):
         super().__init__()
@@ -42,8 +40,8 @@ class Head(nn.Module):
 
     def forward(self, x):
         B, T, C = x.shape
-        k = self.key(x)
-        q = self.query(x)
+        k   = self.key(x)
+        q   = self.query(x)
         wei = q @ k.transpose(-2, -1) * k.shape[-1] ** -0.5
         wei = wei.masked_fill(self.tril[:T, :T] == 0, float('-inf'))
         wei = F.softmax(wei, dim=-1)
