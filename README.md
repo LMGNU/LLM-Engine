@@ -1,13 +1,6 @@
 # Core Transformer-Engine 
 
 A character-level GPT transformer built from scratch in PyTorch, trained on Linux kernel C source code to generate kernel-style C code character by character. No pre-trained weights. No fine-tuning. Pure architecture and training from zero.
-# GPU 
-<img width="1015" height="997" alt="Screenshot 2026-03-23 012509" src="https://github.com/user-attachments/assets/aa4bbc81-71cc-4176-8479-f114df7dd50d" />
-
-# CPU 
-<img width="948" height="773" alt="Screenshot 2026-03-20 114641" src="https://github.com/user-attachments/assets/5963a9c6-cc85-407f-996b-e1a8ac3f5b8d" />
-
-
 ---
 
 ## Table of Contents
@@ -40,7 +33,7 @@ It is a learning project. The goal is not to produce production-quality code, bu
 ## Project Structure
 
 ```
-project/
+LLM-Engine/
 │
 ├── transformer.py        # Main training script — GPT model
 ├── train.py              # Secondary script — simple Bigram model (for comparison)
@@ -382,8 +375,6 @@ The weights are a compressed snapshot of every pattern seen in the training data
 ---
 
 ## Scaling Laws — And Where Model Sits
-<img width="1029" height="705" alt="Screenshot 2026-03-17 171921" src="https://github.com/user-attachments/assets/656c4e9b-c773-4aea-80af-438ca1cf10f4" />
-
 
 ### What Are Scaling Laws?
 
