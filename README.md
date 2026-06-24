@@ -1,6 +1,6 @@
-# Core Transformer-Engine 
+# LLM-Engine
 
-A character-level GPT transformer built from scratch in PyTorch, trained on Linux kernel C source code to generate kernel-style C code character by character. No pre-trained weights. No fine-tuning. Pure architecture and training from zero.
+A character-level GPT transforme in PyTorch, trained on Linux kernel C source code to generate kernel-style C code character by character. No pre-trained weights. No fine-tuning. Pure architecture and training from zero.
 ---
 
 ## Table of Contents
